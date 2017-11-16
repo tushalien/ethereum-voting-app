@@ -1,0 +1,17 @@
+{% include "header.html" %}
+<div class="row text-center">
+
+  <form action = "/scan_qr" method = "POST" 
+     enctype = "multipart/form-data">
+     <input type = "file" name = "file" />
+     <input type = "submit"/>
+  </form>
+</div>
+<div class="row text-center">
+<h2>Upload Your QR Code</h2>
+</div>
+<body>
+
+<!-- 
+<script type="text/javascript" src="/static/js/vote.js"></script> -->
+{% include "footer.html" %}

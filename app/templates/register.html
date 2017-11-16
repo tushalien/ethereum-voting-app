@@ -1,0 +1,30 @@
+{% include "header.html" %}
+
+<div class="row">
+  <div class="small-8 columns">
+    <img id="bg" src="/video_viewer" width="100%">
+  </div>
+  <div class="small-4 columns text-right">
+  <form id="post-form" action='/complete_registeration', method="post">
+  <input id="name" type="text" name="name" placeholder="Name" required>
+    <input id="ido" type="text" name="ido" placeholder="Aadhar Card Number" required>
+    <select id="constituency" name="constituency">
+      <option value="Delhi">Delhi</option>
+      <option value="Gujarat">Gujarat</option>
+      <option value="UP">UP</option>
+    </select>
+    <input id="dob" type="date" placeholder="Date of Birth" name="dob" required>
+    <input id="contact" type="text" placeholder="Contact Number" name="dob" required>
+    <div class="small-4 columns">
+      <input id="post" type="submit" id value="Submit" class="button np fullwidth">
+    </div>
+  </form>
+  </div>
+</div>
+<div class = "row text-center">
+<h2>Please Fill The Details while we create your unique id.</h2>
+</div>
+<body>
+
+<script type="text/javascript" src="/static/js/vote.js"></script>
+{% include "footer.html" %}

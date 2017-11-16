@@ -1,0 +1,33 @@
+Web3 = require('web3')
+web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+web3.eth.accounts
+
+code = fs.readFileSync('voting.sol').toString()
+solc = require('solc')
+compiledCode = solc.compile(code)
+abiDefinition = JSON.parse(compiledCode.contracts[':Voting'].interface)
+VotingContract = web3.eth.contract(abiDefinition)
+byteCode = compiledCode.contracts[':Voting'].bytecode
+deployedContract = VotingContract.new(['Rahul Gandhi','Arvind Kejriwal','Narendra Modi'],['Delhi','Delhi','Gujarat'],{data: byteCode, from: web3.eth.accounts[0], gas: 4700000})
+deployedContract.address
+contractInstance = VotingContract.at(deployedContract.address)
+
+contractInstance.address
+compiledCode.contracts[':Voting'].interface
+
+
+
+
+codeAuthentic = fs.readFileSync('authentication.sol').toString()
+compiledCodeAuthentic = solc.compile(codeAuthentic)
+abiDefinitionAuthentic = JSON.parse(compiledCodeAuthentic.contracts[':Authentication'].interface)
+AuthenticContract = web3.eth.contract(abiDefinitionAuthentic)
+byteCodeAuthentic = compiledCodeAuthentic.contracts[':Authentication'].bytecode
+deployedContractAuthentic = AuthenticContract.new(['Tushar','Anshul','Ravi','Urjit'],['Delhi','Delhi','Delhi','Gujarat'],'0x3ff3a71479838f7ed9d01e074c1b42c635f77fad',{data: byteCodeAuthentic, from: web3.eth.accounts[1], gas: 4700000})
+
+deployedContractAuthentic.address
+
+contractInstanceAuthentic = AuthenticContract.at(deployedContractAuthentic.address)
+
+contractInstanceAuthentic.address
+compiledCodeAuthentic.contracts[':Authentication'].interface
